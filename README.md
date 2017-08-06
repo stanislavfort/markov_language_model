@@ -7,6 +7,8 @@ This is an experimental setup for character-by-character language generation. A 
 
 **generate_sequence.py** loads in pickled counts from extract_probs.py. It uses a character sequence to start its generation somewhere sensible, and then continues to generate the next character probabilistically based on the highest available order. The higher the order, the less likely will a *particular* sequence be included, and the more language-like will the sequence sound. Given a text, the generator will look up the highest order dictionary containing the last `order` characters available, and choose the next character at random based on the observed counts
 
+**data/** contains several examples of extracted counts for the King James Bible, and Fifty Shades of Grey. You can try generating sequences from them directly.
+
 ##### Characters vs. words:
 Using words as the primitive unit in generation would be much harder in this brittle, one-hot Markov setup. There are many more available words than characters, and therefore the counts sampled from a given text would be much sparser.
 
